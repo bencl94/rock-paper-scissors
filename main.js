@@ -42,7 +42,7 @@ function playRound(playersChoice, computersChoice) {
         if (computersChoice == 'Rock') {
             return getWinnerMsg();
         } else {
-            getLoserMsg();
+            return getLoserMsg();
         }
     }
 
@@ -51,7 +51,41 @@ function playRound(playersChoice, computersChoice) {
             return getLoserMsg();
         }
         else {
-            getWinnerMsg();
+            return getWinnerMsg();
         }
+    }
+}
+
+function playGame() {
+    let playerScore = 0;
+    let computerScore = 0;
+    let choice;
+    let result;
+
+    function getScores() {
+        return `You: ${playerScore} vs. Computer: ${computerScore}`
+    }
+
+    for (let i = 0; i < 5; i++) {
+        choice = prompt('Choose wisly! (Rock, Paper, Scissors)');
+
+        result = playRound(choice, getComputerChoice());
+        // console.log(result);
+
+        if (result.startsWith('You Win')) {
+            playerScore++;
+        }
+
+        if (result.startsWith('You Lose')) {
+            computerScore++;
+        }
+
+        console.log(result + ' ' + getScores());
+    }
+
+    if (playerScore > computerScore) {
+        console.log('Game Over! You have won! ' + getScores());
+    } else {
+        console.log('Game Over! You have lost! ' + getScores());
     }
 }
