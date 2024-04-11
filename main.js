@@ -1,3 +1,32 @@
+const buttons = document.querySelectorAll("button");
+
+buttons.forEach((button) => {
+
+    if (button.getAttribute("id") === 'rock') {
+        button.addEventListener("click", callPlayRoundWithRock)
+    }
+
+    if (button.getAttribute("id") === 'paper') {
+        button.addEventListener("click", callPlayRoundWithPaper)
+    }
+
+    if (button.getAttribute("id") === 'scissors') {
+        button.addEventListener("click", callPlayRoundWithScissors)
+    }
+})
+
+function callPlayRoundWithRock() {
+    console.log(playRound('Rock', getComputerChoice()));
+}
+
+function callPlayRoundWithPaper() {
+    console.log(playRound('Paper', getComputerChoice()));
+}
+
+function callPlayRoundWithScissors() {
+    console.log(playRound('Scissors', getComputerChoice()));
+}
+
 function getComputerChoice() {
     let randomNum = Math.random();
 
