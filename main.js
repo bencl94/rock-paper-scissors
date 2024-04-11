@@ -79,7 +79,9 @@ function addResetButton() {
         resetBtn.remove();
     })
 
-    document.querySelector("body").appendChild(resetBtn);
+    resetBtn.classList.add("reset-btn");
+
+    document.querySelector(".comment-section").appendChild(resetBtn);
 }
 
 function setCommentText(commentText) {
